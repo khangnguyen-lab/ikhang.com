@@ -44,6 +44,29 @@ export const metadata: Metadata = {
   icons: {
     icon: "/favicon.png",
   },
+  openGraph: {
+    title: "Khang Nguyen",
+    description:
+      "Personal site of Khang Nguyen — UCI student, Stripe intern, NASA researcher, and founder of Irvine Consulting Group.",
+    url: SITE_URL,
+    siteName: "Khang Nguyen",
+    type: "website",
+    images: [
+      {
+        url: "/og.png",
+        width: 1024,
+        height: 537,
+        alt: "Khang Nguyen",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Khang Nguyen",
+    description:
+      "Personal site of Khang Nguyen — UCI student, Stripe intern, NASA researcher, and founder of Irvine Consulting Group.",
+    images: ["/og.png"],
+  },
 };
 
 export default function RootLayout({
