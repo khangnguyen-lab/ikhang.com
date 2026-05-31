@@ -1,0 +1,119 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --accent: 99 91 255; /* Stripe purple #635BFF */
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-bg text-primary antialiased;
+  }
+
+  html.custom-cursor-active,
+  html.custom-cursor-active * {
+    cursor: none !important;
+  }
+
+  ::selection {
+    @apply bg-accent/30 text-primary;
+  }
+}
+
+/* SpaceX.com hero headline — D-DIN Bold, uppercase, tracked */
+@layer components {
+  .spacex-hero-title {
+    font-family: var(--font-spacex), system-ui, sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    line-height: 0.95;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  @media (min-width: 768px) {
+    .spacex-hero-title {
+      letter-spacing: 0.05em;
+    }
+  }
+
+  .spacex-body {
+    font-family: var(--font-spacex), system-ui, sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    -webkit-font-smoothing: subpixel-antialiased;
+    -moz-osx-font-smoothing: auto;
+  }
+
+  .hero-enter {
+    opacity: 1;
+  }
+
+  .hero-clock-enter {
+    opacity: 1;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .hero-enter {
+      animation: hero-fade-up 0.6s ease-out 0.3s both;
+    }
+
+    .hero-clock-enter {
+      animation: hero-fade-in 0.5s ease-out 0.5s both;
+    }
+
+    .hero-photo-enter {
+      animation: hero-photo-rise 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+
+    .hero-orbit-arm {
+      transform-origin: 0 0;
+      animation: hero-orbit-spin linear infinite;
+    }
+  }
+}
+
+@keyframes hero-orbit-spin {
+  from {
+    transform: rotate(var(--orbit-start, 0deg));
+  }
+  to {
+    transform: rotate(calc(var(--orbit-start, 0deg) + 360deg));
+  }
+}
+
+@keyframes hero-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes hero-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes hero-photo-rise {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
