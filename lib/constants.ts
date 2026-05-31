@@ -10,7 +10,7 @@ export const SPLINE_COMMUNITY_FILE_URL =
   "https://community.spline.design/file/dc934dad-135e-42bd-ad4d-8234b6cfd7bc";
 
 export const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://ikhang.com";
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.ikhang.com";
 
 export const SITE = {
   name: "Khang Nguyen",

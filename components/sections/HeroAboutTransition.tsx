@@ -28,9 +28,9 @@ const STREAK_LAYOUT = [
 ] as const;
 
 function WarpTunnel({ progress }: { progress: MotionValue<number> }) {
-  const scale = useTransform(progress, [0, 0.04, 0.28], [0.55, 0.65, 10]);
+  const scale = useTransform(progress, [0.04, 0.28], [0.55, 10]);
   const rotate = useTransform(progress, [0, 0.85], [0, 38]);
-  const opacity = useTransform(progress, [0, 0.04, 0.1, 0.5, 0.62], [0.12, 0.35, 1, 1, 0]);
+  const opacity = useTransform(progress, [0, 0.06, 0.68, 0.82], [0.12, 0.35, 1, 0]);
 
   return (
     <motion.div
@@ -69,8 +69,8 @@ function WarpTunnel({ progress }: { progress: MotionValue<number> }) {
 }
 
 function VelocityStreaks({ progress }: { progress: MotionValue<number> }) {
-  const opacity = useTransform(progress, [0.04, 0.12, 0.38, 0.48], [0, 1, 1, 0]);
-  const scaleX = useTransform(progress, [0.06, 0.28], [0, 1.6]);
+  const opacity = useTransform(progress, [0.06, 0.14, 0.42, 0.52], [0, 1, 1, 0]);
+  const scaleX = useTransform(progress, [0.08, 0.3], [0, 1.6]);
 
   return (
     <motion.div className="pointer-events-none absolute inset-0" style={{ opacity }} aria-hidden>
@@ -91,8 +91,8 @@ function VelocityStreaks({ progress }: { progress: MotionValue<number> }) {
 }
 
 function TerminalHandoff({ progress }: { progress: MotionValue<number> }) {
-  const containerOpacity = useTransform(progress, [0.12, 0.2, 0.26, 0.34], [0, 1, 1, 0]);
-  const driftY = useTransform(progress, [0.22, 0.34], [0, -12]);
+  const containerOpacity = useTransform(progress, [0.18, 0.28, 0.72, 0.82], [0, 1, 1, 0]);
+  const driftY = useTransform(progress, [0.28, 0.72], [12, -8]);
 
   return (
     <motion.div
@@ -110,7 +110,7 @@ function TerminalHandoff({ progress }: { progress: MotionValue<number> }) {
 }
 
 function TerminalTagline({ progress }: { progress: MotionValue<number> }) {
-  const dockOpacity = useTransform(progress, [0.2, 0.26, 0.3, 0.34], [0, 1, 0.6, 0]);
+  const dockOpacity = useTransform(progress, [0.48, 0.56, 0.68, 0.78], [0, 1, 1, 0]);
 
   return (
     <motion.p
@@ -131,9 +131,9 @@ function TerminalLine({
   progress: MotionValue<number>;
   index: number;
 }) {
-  const start = 0.14 + index * 0.05;
-  const opacity = useTransform(progress, [start, start + 0.045], [0, 1]);
-  const y = useTransform(progress, [start, start + 0.045], [10, 0]);
+  const start = 0.2 + index * 0.06;
+  const opacity = useTransform(progress, [start, start + 0.05], [0, 1]);
+  const y = useTransform(progress, [start, start + 0.05], [10, 0]);
 
   return (
     <motion.p className="text-primary" style={{ opacity, y }}>
@@ -143,8 +143,8 @@ function TerminalLine({
 }
 
 function ReentryFlash({ progress }: { progress: MotionValue<number> }) {
-  const opacity = useTransform(progress, [0.32, 0.38, 0.46], [0, 0.55, 0]);
-  const scale = useTransform(progress, [0.32, 0.46], [0.6, 2.2]);
+  const opacity = useTransform(progress, [0.52, 0.58, 0.66], [0, 0.55, 0]);
+  const scale = useTransform(progress, [0.52, 0.66], [0.6, 2.2]);
 
   return (
     <motion.div
@@ -200,10 +200,10 @@ function EntryBridge({ progress }: { progress: MotionValue<number> }) {
 }
 
 function AboutTitle({ progress }: { progress: MotionValue<number> }) {
-  const opacity = useTransform(progress, [0.24, 0.32, 0.76, 0.9], [0, 1, 1, 0]);
-  const scale = useTransform(progress, [0.24, 0.34], [1.35, 1]);
-  const blur = useTransform(progress, [0.24, 0.32], [14, 0]);
-  const tracking = useTransform(progress, [0.24, 0.34], [0.28, 0.06]);
+  const opacity = useTransform(progress, [0.58, 0.68, 0.88, 0.96], [0, 1, 1, 0]);
+  const scale = useTransform(progress, [0.58, 0.68], [1.35, 1]);
+  const blur = useTransform(progress, [0.58, 0.68], [14, 0]);
+  const tracking = useTransform(progress, [0.58, 0.68], [0.28, 0.06]);
   const letterSpacing = useTransform(tracking, (v) => `${v}em`);
   const filter = useTransform(blur, (b) => `blur(${b}px)`);
 
@@ -243,7 +243,7 @@ export function HeroAboutTransition() {
   }
 
   return (
-    <div ref={containerRef} className="relative -mt-[30vh] h-[260vh]" aria-hidden>
+    <div ref={containerRef} className="relative z-[12] -mt-[30vh] h-[300vh]" aria-hidden>
       <div className="sticky top-0 h-screen w-full overflow-hidden">
         <EntryBridge progress={scrollYProgress} />
         <WarpTunnel progress={scrollYProgress} />
