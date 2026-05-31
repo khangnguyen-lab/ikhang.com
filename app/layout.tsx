@@ -42,7 +42,7 @@ export const metadata: Metadata = {
   description:
     "Personal site of Khang Nguyen — UCI student, Stripe intern, NASA researcher, and founder of Irvine Consulting Group.",
   icons: {
-    icon: "/logo.png",
+    icon: "/favicon.png",
   },
 };
 
